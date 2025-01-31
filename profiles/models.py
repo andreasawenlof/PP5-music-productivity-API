@@ -8,6 +8,7 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE, related_name="profile")
     display_name = models.CharField(max_length=255, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
+    is_editor = models.BooleanField(default=False)
     avatar = CloudinaryField('image', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

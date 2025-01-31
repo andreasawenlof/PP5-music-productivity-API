@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 
 class ProfileList(generics.ListAPIView):
     serializer_class = ProfileSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     queryset = Profile.objects.all()
 
 

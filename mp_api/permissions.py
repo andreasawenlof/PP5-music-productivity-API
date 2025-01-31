@@ -1,6 +1,17 @@
 from rest_framework import permissions
 
 
+class IsEditorOrOwner(permissions.BasePermission):
+    """
+    Custom permission to only allow editors
+    """
+
+    def has_permission(self, request, view):
+        if request.user.profile.is_editor:  # Check if user is an editor
+            return True
+        return False
+
+
 class IsOwnerOrReadOnly(permissions.BasePermission):
     """
     Custom permission to only allow the owner of a profile to edit it.
