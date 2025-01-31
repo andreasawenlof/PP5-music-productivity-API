@@ -23,7 +23,7 @@ class ReviewListCreate(generics.ListCreateAPIView):
         serializer.save(reviewer=self.request.user)
 
 
-class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
+class ReviewDetail(generics.RetrieveUpdateAPIView):
     serializer_class = ReviewSerializer
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
 
@@ -69,3 +69,9 @@ class ReviewHistoryDetail(generics.RetrieveUpdateDestroyAPIView):
         if user.profile.is_editor:
             return ReviewHistory.objects.all()
         return ReviewHistory.objects.filter(review__reviewer=user)
+
+
+class ReviewDelete(generics.DestroyAPIView):  # ✅ Only for Editors
+    serializer_class = ReviewSerializer
+    permission_classes = [IsAuthenticated, IsEditorOrOwner]
+    queryset = Review.objects.all()
