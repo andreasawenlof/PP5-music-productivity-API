@@ -111,6 +111,10 @@ INSTALLED_APPS = [
     # Local Apps
     'tracks',
     'albums',
+    'instruments',
+    'profiles',
+    'comments',
+    'reviews',
 ]
 
 

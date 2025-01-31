@@ -1,4 +1,5 @@
 from django.db import models
+from CloudinaryField import CloudinaryField
 
 
 class Album(models.Model):
@@ -36,6 +37,7 @@ class Album(models.Model):
     title = models.CharField(max_length=255, blank=False, null=False)
     status = models.CharField(
         max_length=20, choices=STATUS_CHOICES, default='in_progress', blank=False, null=False)
+    cover_art = CloudinaryField('image', blank=True, null=True)
     project_type = models.CharField(
         max_length=20, choices=PROJECT_TYPE_CHOICES, default='quantity', blank=False, null=False)
     genre = models.CharField(
