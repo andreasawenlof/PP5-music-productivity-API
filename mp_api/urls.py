@@ -26,5 +26,7 @@ urlpatterns = [
     path('tracks/', include('tracks.urls')),
     path('albums/', include('albums.urls')),
     path('profiles/', include('profiles.urls')),
+    path('instruments/', include('instruments.urls')),
+    path('comments/', include('comments.urls')),
 
 ]

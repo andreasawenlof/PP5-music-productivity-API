@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from albums.models import Album
+from profiles.models import Profile
 
 
 class Track(models.Model):
