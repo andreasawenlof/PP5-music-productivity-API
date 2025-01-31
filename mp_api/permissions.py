@@ -24,3 +24,12 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
         # Write permissions are only allowed to the owner of the profile
         return obj.owner == request.user
+
+
+class IsReviewer(permissions.BasePermission):
+    """
+    Custom permission to allow only reviewers to view and edit their reviews.
+    """
+
+    def has_permission(self, request, view):
+        return request.user.profile.is_reviewer  # Only reviewers can pass

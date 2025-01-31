@@ -9,6 +9,7 @@ class Profile(models.Model):
     display_name = models.CharField(max_length=255, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     is_editor = models.BooleanField(default=False)
+    is_reviewer = models.BooleanField(default=False)
     avatar = CloudinaryField('image', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
